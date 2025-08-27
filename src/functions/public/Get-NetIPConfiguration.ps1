@@ -79,27 +79,7 @@
         }
 
         foreach ($addr in $unicast) {
-            $prefixLength = $addr.PrefixLength
-            $mask = if ($addr.Address.AddressFamily -eq [System.Net.Sockets.AddressFamily]::InterNetwork) {
-                Get-SubnetMaskFromPrefix $prefixLength
-            } else {
-                # IPv6 masks are represented by prefix length
-                $null
-            }
-
-            [PSCustomObject]@{
-                InterfaceName = $adapter.Name
-                Description   = $adapter.Description
-                Status        = $adapter.OperationalStatus
-                AddressFamily = $addr.Address.AddressFamily.ToString()
-                IPAddress     = $addr.Address.IPAddressToString
-                PrefixLength  = $prefixLength
-                SubnetMask    = $mask
-                Gateway       = ($ipProps.GatewayAddresses |
-                        ForEach-Object { $_.Address.IPAddressToString }) -join ', '
-                DNSServers    = ($ipProps.DnsAddresses |
-                        ForEach-Object { $_.IPAddressToString }) -join ', '
-            }
+            [IPConfig]::new($adapter, $addr, $ipProps)
         }
     }
 }
