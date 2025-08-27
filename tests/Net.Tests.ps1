@@ -19,8 +19,22 @@
 [CmdletBinding()]
 param()
 
-Describe 'Module' {
-    It 'Function: Test-PSModuleTest' {
-        Test-PSModuleTest -Name 'World' | Should -Be 'Hello, World!'
+Describe 'Net' {
+    Context 'Get-NetIPConfiguration' {
+        It 'returns expected results' {
+            $results = Get-NetIPConfiguration
+            LogGroup 'Results' {
+                Write-Host "$($results | Out-String)"
+            }
+            $results | Should -BeOfType 'IPConfig'
+        }
+
+        It 'IPConfig alias works' {
+            $results = IPConfig
+            LogGroup 'Results' {
+                Write-Host "$($results | Format-List | Out-String)"
+            }
+            $results | Should -BeOfType 'IPConfig'
+        }
     }
 }
