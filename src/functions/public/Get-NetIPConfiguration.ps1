@@ -66,10 +66,21 @@
         if ($prefix -lt 0 -or $prefix -gt 32) { return $null }
 
         $bytes = [byte[]](0..3 | ForEach-Object {
+                # Calculate the number of subnet bits for this octet (max 8, min 0)
                 $bits = [Math]::Max([Math]::Min($prefix - (8 * $_), 8), 0)
-                if ($bits -le 0) { 0 }
-                elseif ($bits -ge 8) { 255 }
-                else { ((0xFF -shl (8 - $bits)) -band 0xFF) }
+                if ($bits -le 0) { 
+                    # If no bits are set for this octet, value is 0
+                    0 
+                }
+                elseif ($bits -ge 8) { 
+                    # If all bits are set for this octet, value is 255
+                    255 
+                }
+                else { 
+                    # For partial octets, shift 0xFF left by (8 - $bits) to set the correct number of bits,
+                    # then mask with 0xFF to ensure only 8 bits are used
+                    ((0xFF -shl (8 - $bits)) -band 0xFF) 
+                }
             })
         [System.Net.IPAddress]::new($bytes).ToString()
     }
