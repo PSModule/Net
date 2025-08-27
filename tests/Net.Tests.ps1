@@ -26,6 +26,7 @@ Describe 'Net' {
             LogGroup 'Results' {
                 Write-Host "$($results | Out-String)"
             }
+            $results | Should -BeOfType 'IPConfig'
         }
 
         It 'IPConfig alias works' {
@@ -33,6 +34,7 @@ Describe 'Net' {
             LogGroup 'Results' {
                 Write-Host "$($results | Format-List | Out-String)"
             }
+            $results | Should -BeOfType 'IPConfig'
         }
     }
 }
