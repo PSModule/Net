@@ -37,6 +37,7 @@
         https://psmodule.io/Net/Functions/Get-NetIPConfiguration
     #>
 
+    [Alias('IPConfig')]
     [CmdletBinding()]
     param(
         # Filters interfaces based on operational status ('Up' or 'Down')
