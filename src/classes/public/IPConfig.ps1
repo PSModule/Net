@@ -34,7 +34,11 @@
         $this.InterfaceName = $Interface.Name
         $this.Description = $Interface.Description
         $this.Status = $Interface.OperationalStatus
-        $this.AddressFamily = $AddressInformation.Address.AddressFamily.ToString()
+        switch ($AddressInformation.Address.AddressFamily) {
+            ([System.Net.Sockets.AddressFamily]::InterNetwork) { $this.AddressFamily = 'IPv4'; break }
+            ([System.Net.Sockets.AddressFamily]::InterNetworkV6) { $this.AddressFamily = 'IPv6'; break }
+            default { $this.AddressFamily = $AddressInformation.Address.AddressFamily.ToString() }
+        }
         $this.IPAddress = $AddressInformation.Address.IPAddressToString
         $this.PrefixLength = $AddressInformation.PrefixLength
 
