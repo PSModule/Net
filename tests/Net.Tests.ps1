@@ -23,14 +23,14 @@ Describe 'Net' {
     Context 'Get-NetIPConfiguration' {
         It 'returns expected results' {
             $results = Get-NetIPConfiguration
-            LogGroup "Results" {
-                Write-Host "$($results | Format-List | Out-String)"
+            LogGroup 'Results' {
+                Write-Host "$($results | Out-String)"
             }
         }
 
         It 'IPConfig alias works' {
             $results = IPConfig
-            LogGroup "Results" {
+            LogGroup 'Results' {
                 Write-Host "$($results | Format-List | Out-String)"
             }
         }
