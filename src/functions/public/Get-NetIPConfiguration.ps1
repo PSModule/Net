@@ -28,16 +28,14 @@
         Retrieves the IPv4 configuration for all network interfaces that are currently operational (Up).
 
         .OUTPUTS
-        PSCustomObject. Returns a custom object containing details such as interface name, IP address,
-        address family, subnet mask, and DNS/gateway configuration for each matching network adapter and address.
-
-        PSCustomObject. Each object reflects a single unicast address instance associated with the matched adapter.
+        IPConfig
 
         .LINK
         https://psmodule.io/Net/Functions/Get-NetIPConfiguration
     #>
 
     [Alias('IPConfig')]
+    [OutputType([IPConfig])]
     [CmdletBinding()]
     param(
         # Filters interfaces based on operational status ('Up' or 'Down')
