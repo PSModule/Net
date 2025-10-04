@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Types>
+    <Type>
+        <Name>IPConfig</Name>
+        <Members>
+            <AliasProperty>
+                <Name>Type</Name>
+                <ReferencedMemberName>AddressFamily</ReferencedMemberName>
+            </AliasProperty>
+            <AliasProperty>
+                <Name>Name</Name>
+                <ReferencedMemberName>InterfaceName</ReferencedMemberName>
+            </AliasProperty>
+            <AliasProperty>
+                <Name>Mask</Name>
+                <ReferencedMemberName>PrefixLength</ReferencedMemberName>
+            </AliasProperty>
+        </Members>
+    </Type>
+</Types>
