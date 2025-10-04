@@ -2,59 +2,51 @@
 <Configuration>
     <ViewDefinitions>
         <View>
-            <Name>mygciview</Name>
+            <Name>IPConfigTable</Name>
             <ViewSelectedBy>
-                <TypeName>System.IO.DirectoryInfo</TypeName>
-                <TypeName>System.IO.FileInfo</TypeName>
+                <TypeName>IPConfig</TypeName>
             </ViewSelectedBy>
-            <GroupBy>
-                <PropertyName>PSParentPath</PropertyName>
-            </GroupBy>
             <TableControl>
                 <TableHeaders>
                     <TableColumnHeader>
-                        <Label>Mode</Label>
-                        <Width>7</Width>
-                        <Alignment>Left</Alignment>
-                    </TableColumnHeader>
-                    <TableColumnHeader>
-                        <Label>LastWriteTime</Label>
-                        <Width>26</Width>
-                        <Alignment>Right</Alignment>
-                    </TableColumnHeader>
-                    <TableColumnHeader>
-                        <Label>CreationTime</Label>
-                        <Width>26</Width>
-                        <Alignment>Right</Alignment>
-                    </TableColumnHeader>
-                    <TableColumnHeader>
-                        <Label>Length</Label>
-                        <Width>14</Width>
-                        <Alignment>Right</Alignment>
-                    </TableColumnHeader>
-                    <TableColumnHeader>
                         <Label>Name</Label>
-                        <Alignment>Left</Alignment>
+                    </TableColumnHeader>
+                    <TableColumnHeader>
+                        <Label>Status</Label>
+                    </TableColumnHeader>
+                    <TableColumnHeader>
+                        <Label>Type</Label>
+                    </TableColumnHeader>
+                    <TableColumnHeader>
+                        <Label>Address</Label>
+                    </TableColumnHeader>
+                    <TableColumnHeader>
+                        <Label>Gateway</Label>
+                    </TableColumnHeader>
+                    <TableColumnHeader>
+                        <Label>DNSServers</Label>
                     </TableColumnHeader>
                 </TableHeaders>
                 <TableRowEntries>
                     <TableRowEntry>
-                        <Wrap />
                         <TableColumnItems>
                             <TableColumnItem>
-                                <PropertyName>ModeWithoutHardLink</PropertyName>
-                            </TableColumnItem>
-                            <TableColumnItem>
-                                <PropertyName>LastWriteTime</PropertyName>
-                            </TableColumnItem>
-                            <TableColumnItem>
-                                <PropertyName>CreationTime</PropertyName>
-                            </TableColumnItem>
-                            <TableColumnItem>
-                                <PropertyName>Length</PropertyName>
-                            </TableColumnItem>
-                            <TableColumnItem>
                                 <PropertyName>Name</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>Status</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>Type</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>IPAddress</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>Gateway</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>DNSServers</PropertyName>
                             </TableColumnItem>
                         </TableColumnItems>
                     </TableRowEntry>
