@@ -1,11 +1,6 @@
 # Net
 
-Net is a PowerShell module for inspecting network configuration data from PowerShell.
-
-## Prerequisites
-
-- PowerShell with `Microsoft.PowerShell.PSResourceGet` available for `Install-PSResource`.
-- The [PSModule framework](https://github.com/PSModule) is used for building, testing, and publishing the module.
+Net is a PowerShell module for network-related functions.
 
 ## Installation
 
@@ -16,33 +11,16 @@ Install-PSResource -Name Net
 Import-Module -Name Net
 ```
 
-## Commands
-
-- `Get-NetIPConfiguration` retrieves network interface IP configuration, including addresses, prefix lengths, gateways, and DNS servers.
-
-## Usage
-
-List IP configuration for all interfaces:
-
-```powershell
-Get-NetIPConfiguration
-```
-
-List active IPv4 configuration only:
-
-```powershell
-Get-NetIPConfiguration -InterfaceStatus Up -AddressFamily IPv4
-```
-
-The command is also available through the `IPConfig` alias:
-
-```powershell
-IPConfig -AddressFamily IPv6
-```
-
 ## Documentation
 
-Command documentation is published at [psmodule.io/Net](https://psmodule.io/Net/).
+Documentation is published at [psmodule.io/Net](https://psmodule.io/Net/).
+
+Use PowerShell help and command discovery for module details:
+
+```powershell
+Get-Command -Module Net
+Get-Help <CommandName> -Examples
+```
 
 ## Contributing
 
